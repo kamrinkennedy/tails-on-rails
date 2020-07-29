@@ -9,7 +9,7 @@ module ApplicationHelper
     end
 
     def check_user
-        if !logged_in? || current_user.id != @user.id
+        if !logged_in?
             redirect_to root_path
         end
     end

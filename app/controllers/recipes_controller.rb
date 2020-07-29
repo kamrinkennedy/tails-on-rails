@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-    before_action :set_recipe, only: [:new, :edit, :update, :destroy]
+    before_action :set_recipe, only: [:create, :edit, :update, :destroy, :show]
     
     def index
         @recipes = Recipe.all
@@ -7,6 +7,16 @@ class RecipesController < ApplicationController
 
     def new
         check_user
+        @recipe = Recipe.new
+    end
+
+    def create
+        @recipe = Recipe.new(recipe_params)
+        if @recipe.save
+            redirect_to recipe_path(@recipe)
+        else
+            render :new
+        end
     end
 
     private

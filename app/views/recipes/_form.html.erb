@@ -1,0 +1,15 @@
+
+
+<%= form_for @recipe do |f| %>
+    <%= f.label :name, "Cocktail Name:" %><br>
+    <%= f.text_field :name %><br><br>
+    <%= f.label :main_spirit, "Select Major Spirit:" %><br>
+    <%= f.collection_select(:main_spirit_id, MainSpirit.all, :id, :name, prompt: true ) %><br><br>
+    <%= f.label :ingredients, "List Ingredients:" %><br>
+    <%= f.text_field :ingredients %><br><br>
+    <%= f.label :directions, "List Directions:" %><br>
+    <%= f.text_area :directions %><br><br>
+    <%= f.hidden_field :user_id, :value => current_user.id %><br><br> 
+    <%= f.submit "Submit Cocktail" %>
+
+<% end %>

@@ -1,0 +1,8 @@
+<h1><%= @recipe.name %></h1>
+<h3>created by: <%= link_to @recipe.user.username, user_path(@recipe.user) %></h3>
+
+<ul>
+    <li>Main Spirit: <%= @recipe.main_spirit.name %></li>
+    <li>Ingredients: <%= @recipe.ingredients %></li>
+    <li>Directions: <%= @recipe.directions %></li>
+</ul>
