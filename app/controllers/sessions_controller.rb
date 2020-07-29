@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
         user = User.find_by_email(params[:email])
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            redirect_to user_path(user)
+            redirect_to root_path
         else
             redirect_to login_path, alert: "Invalid credentials. Please try again."
         end
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         user = User.create_from_omniauth(auth)
         if user.valid?
             session[:user_id] = user.id
-            redirect_to user_path(user)
+            redirect_to root_path
         else
             redirect_to login_path, alert: user.errors.full_messages.join(", ")
         end

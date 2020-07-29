@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-    before_action :set_recipe, only: [:create, :edit, :update, :destroy, :show]
+    before_action :set_recipe, only: [:edit, :update, :destroy, :show]
     
     def index
         @recipes = Recipe.all
@@ -19,7 +19,36 @@ class RecipesController < ApplicationController
         end
     end
 
+    def show
+        @review = Review.new(recipe_id: @recipe.id)
+    end
+    
+    def edit
+        verify
+    end
+
+    def update
+        if @recipe.update(recipe_params)
+            redirect_to recipe_path(@recipe), notice: "Cocktail successfully updated."
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        verify
+        @recipe.reviews.each { |r| r.destroy }
+        @recipe.destroy
+        redirect_to user_path(current_user), notice: "Cocktail successfully removed."
+    end
+
     private
+
+    def verify
+        if @recipe.user != current_user
+            redirect_to recipe_path(@recipe), alert: "You do not have permission to alter this."
+        end
+    end
 
     def set_recipe
         @recipe = Recipe.find_by_id(params[:id])

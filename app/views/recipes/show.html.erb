@@ -1,8 +1,30 @@
 <h1><%= @recipe.name %></h1>
 <h3>created by: <%= link_to @recipe.user.username, user_path(@recipe.user) %></h3>
 
-<ul>
-    <li>Main Spirit: <%= @recipe.main_spirit.name %></li>
-    <li>Ingredients: <%= @recipe.ingredients %></li>
-    <li>Directions: <%= @recipe.directions %></li>
-</ul>
+
+    <h3>Average Rating: <%= @recipe.avg_rating %></h3>
+    <h3>Main Spirit: <%= @recipe.main_spirit.name %></h3>
+    <h3>Ingredients: <%= @recipe.ingredients %></h3>
+    <h3>Directions: <%= @recipe.directions %></h3>
+
+
+<% if @recipe.user == current_user %>
+    <%= button_to "Edit Cocktail", edit_recipe_path(@recipe), method: 'get' %>
+    <%= button_to "Delete Cocktail", recipe_path(@recipe), method: 'delete' %>
+<% end %>
+<br>
+
+<h3>Leave a Review:</h3>
+<%= render partial: '/reviews/form' %>
+<div class="center">
+    <h2>Reviews</h2>
+</div>
+<% @recipe.reviews.reverse.each do |r| %>
+    <div class="center">
+        <strong>Reviewer: <%= r.user.username %></strong><br>
+        <strong>Rating: <%= r.rating %></strong><br>
+        <p><%= r.content %></p>
+    </div>
+<% end %>
+
+

@@ -1,0 +1,9 @@
+<%= form_for @review do |f| %>
+    <%= f.label :rating, "Rating:(1-5)" %><br>
+    <%= f.number_field :rating %><br><br>
+    <%= f.label :content, "Comments:" %><br>
+    <%= f.text_area :content %>
+    <%= f.hidden_field :recipe_id%>
+    
+    <%= f.submit "Submit Review" %>
+<% end %>

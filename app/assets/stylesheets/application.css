@@ -18,12 +18,12 @@
     margin: bottom;
     padding: 0;
     width: 200px;
-    background-color: #f1f1f1;
+    background-color: rgb(16, 134, 134);
   }
   
   li a {
     display: block;
-    color: #000;
+    color: rgb(248, 229, 229);
     padding: 8px 16px;
     text-decoration: none;
   }
@@ -45,4 +45,11 @@
   
   li:last-child {
     border-bottom: none;
+  }
+
+  .center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid rgb(82, 82, 255);
+    padding: 10px;
   }
