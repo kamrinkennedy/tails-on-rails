@@ -9,5 +9,11 @@ class ApplicationController < ActionController::Base
         User.find_by_id(session[:user_id])
     end
 
+    def check_user
+        if !logged_in? || current_user.id != @user.id
+            redirect_to root_path
+        end
+    end
+
 
 end

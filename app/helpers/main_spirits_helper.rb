@@ -1,0 +1,2 @@
+module MainSpiritsHelper
+end

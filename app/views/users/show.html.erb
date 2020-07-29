@@ -1,0 +1,15 @@
+<h1><%= @user.username %></h1>
+<h2>All of <%= @user.username %>'s cocktails: </h2>
+
+<ul>
+    <% @user.recipes.each do |recipe| %>
+        <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+    <% end %>
+
+</ul>
+
+<% if @user == current_user %>
+    <ul>
+        <li><%= link_to "Add New Cocktail", new_recipe_path %></li>
+    </ul>
+<% end %>
