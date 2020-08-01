@@ -15,7 +15,7 @@
       <% if !logged_in? %>
         <li><strong><%= link_to "Signup", signup_path %></strong></li> 
         <li><strong><%= link_to "Login", login_path %></strong></li>
-        <li><strong><%= link_to "Login with Google", 'auth/google_oauth2', method: 'post' %><</strong>/li>
+        <li><strong><%= link_to "Login with Google", 'auth/google_oauth2', method: 'post' %></strong></li>
       <% else %>
         <li><strong><%= link_to "Logout", logout_path, method: 'delete' %></strong></li>
       <% end %>

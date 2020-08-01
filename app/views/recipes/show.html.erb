@@ -2,7 +2,7 @@
 <h3>created by: <%= link_to @recipe.user.username, user_path(@recipe.user) %></h3>
 
 
-    <h3>Average Rating: <%= @recipe.avg_rating %></h3>
+    <h3>Average Rating: <%= @recipe.average_rating %></h3>
     <h3>Main Spirit: <%= @recipe.main_spirit.name %></h3>
     <h3>Ingredients: <%= @recipe.ingredients %></h3>
     <h3>Directions: <%= @recipe.directions %></h3>
@@ -16,15 +16,23 @@
 
 <h3>Leave a Review:</h3>
 <%= render partial: '/reviews/form' %>
+
+<% if !@recipe.reviews.empty? %>
 <div class="center">
     <h2>Reviews</h2>
 </div>
-<% @recipe.reviews.reverse.each do |r| %>
+
+
+    <% @recipe.reviews.reverse.each do |r| %>
     <div class="center">
-        <strong>Reviewer: <%= r.user.username %></strong><br>
+        <strong>Reviewer: <%= link_to r.user.username, user_path(r.user) %></strong><br>
         <strong>Rating: <%= r.rating %></strong><br>
         <p><%= r.content %></p>
+        <% if r.user == current_user %>
+        <%= link_to "Edit", edit_review_path(r) %> | <%= link_to "Delete", review_path(r), method: 'delete' %>
+        <% end %>
     </div>
+    <% end %>
 <% end %>
 
 

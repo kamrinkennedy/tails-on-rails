@@ -1,0 +1,7 @@
+<h1><%= @spirit.name %> Cocktails</h1>
+
+<% @spirit.recipes.each do |r| %>
+    <ul>
+        <li><%= link_to r.name_and_creator, recipe_path(r) %></li><br>
+    </ul>
+<% end %>

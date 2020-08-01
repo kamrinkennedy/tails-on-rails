@@ -1,0 +1,7 @@
+<h2>Select a Spirit</h2>
+
+<ul>
+    <% @spirits.each do |s| %>
+        <li><strong><%= link_to s.name, main_spirit_recipes_path(s) %></strong></li>
+    <% end %>
+</ul>

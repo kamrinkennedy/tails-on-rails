@@ -2,12 +2,20 @@ class RecipesController < ApplicationController
     before_action :set_recipe, only: [:edit, :update, :destroy, :show]
     
     def index
-        @recipes = Recipe.all
+        if params[:main_spirit_id]
+            @main_spirit = MainSpirit.find_by_id(params[:main_spirit_id])
+        else
+            @recipes = Recipe.all
+        end
     end
 
     def new
         check_user
-        @recipe = Recipe.new
+        if params[:main_spirit_id]
+            @recipe = Recipe.new(main_spirit_id: params[:main_spirit_id])
+        else
+            @recipe = Recipe.new
+        end
     end
 
     def create
@@ -25,6 +33,7 @@ class RecipesController < ApplicationController
     
     def edit
         verify
+        @recipe.main_spirit_id = nil
     end
 
     def update
@@ -40,6 +49,10 @@ class RecipesController < ApplicationController
         @recipe.reviews.each { |r| r.destroy }
         @recipe.destroy
         redirect_to user_path(current_user), notice: "Cocktail successfully removed."
+    end
+
+    def top_rated
+        @recipes = Recipe.top_rated
     end
 
     private
