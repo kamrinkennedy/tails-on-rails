@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :reviews, only: [:new, :create, :edit, :update, :destroy]
+  resources :reviews, only: [:new, :create, :edit, :update, :destroy, :show]
   resources :recipes
   resources :users, only: [:new, :create, :show]
   

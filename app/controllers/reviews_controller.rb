@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
     end
 
     def show
+        @reviews = User.find_by_id(params[:id]).reviews
     end
 
     def edit

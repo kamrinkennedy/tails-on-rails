@@ -1,0 +1,13 @@
+<h1><%=@reviews.first.user.username %>'s Reviews</h1>
+
+    <% @reviews.each do |r| %>
+    <div class="review">
+        <strong>Recipe: <%= link_to r.recipe.name, recipe_path(r.recipe) %></strong><br>
+        <strong>Rating: <%= r.rating %></strong><br>
+        <p><%= r.content %></p>
+        <% if r.user == current_user %>
+        <%= link_to "Edit", edit_review_path(r) %> | <%= link_to "Delete", review_path(r), method: 'delete' %>
+        <% end %>
+    </div>
+    <br>
+    <% end %>

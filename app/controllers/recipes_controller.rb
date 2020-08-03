@@ -29,11 +29,19 @@ class RecipesController < ApplicationController
     end
 
     def show
+        if !set_recipe
+            redirect_to root_path, alert: "That page was not found."
+        else
         @review = Review.new(recipe_id: @recipe.id)
+        end
     end
     
     def edit
+        if !set_recipe
+            redirect_to root_path, alert: "That page was not found."
+        else
         verify
+        end
         # @recipe.main_spirit_id = nil
     end
 

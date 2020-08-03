@@ -8,7 +8,7 @@
     <% if @recipes %>
     <div class="recipe_index">
         <% @recipes.each do |recipe| %>
-            <strong><%= link_to recipe.name, recipe_path(recipe), class:"button" %></strong>
+            <strong><%= link_to "#{recipe.name} - #{recipe.main_spirit.name}", recipe_path(recipe), class:"button" %></strong>
         <% end %>
     <% else %>
         <% @main_spirit.recipes.each do |recipe| %>

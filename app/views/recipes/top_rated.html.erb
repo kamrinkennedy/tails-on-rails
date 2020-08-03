@@ -1,7 +1,6 @@
 <h1>Top Rated Cocktails</h1>
-
-<% @recipes.each do |r| %>
-    <ul>
-        <li><strong><%= link_to r.name_and_rating, recipe_path(r) %></strong></li>
-    </ul>
-<% end %>
+<ol>
+    <% @recipes.each do |r| %>
+        <li><strong><%= link_to "#{r.name_and_rating} - #{r.main_spirit.name}", recipe_path(r), class:"button" %></strong></li>
+    <% end %>
+</ol>

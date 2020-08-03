@@ -6,7 +6,9 @@ class MainSpiritsController < ApplicationController
     end
 
     def show
-        set_spirit
+        if !set_spirit
+            redirect_to root_path, alert: "That page was not found."
+        end
     end
 
     private
