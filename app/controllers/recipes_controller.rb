@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
     before_action :set_recipe, only: [:edit, :update, :destroy, :show]
+    rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
     
     def index
         if params[:main_spirit_id]
@@ -33,7 +34,7 @@ class RecipesController < ApplicationController
     
     def edit
         verify
-        @recipe.main_spirit_id = nil
+        # @recipe.main_spirit_id = nil
     end
 
     def update

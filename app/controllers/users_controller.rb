@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+    rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
 
     def new
         @user = User.new

@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
   get '/top_rated', to: "recipes#top_rated"
+  get '*path', to: 'application#not_found'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

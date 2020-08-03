@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/lux/bulmaswatch.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BarmaidsTale</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,19 +11,23 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   
-  <div class="topnav">
-    <ul>
-      <li><strong><%= link_to "Home", root_path %></strong></li> 
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+      <div class="navbar-item"><strong><%= link_to "Home", root_path %></strong></div> 
       <% if !logged_in? %>
-        <li><strong><%= link_to "Signup", signup_path %></strong></li> 
-        <li><strong><%= link_to "Login", login_path %></strong></li>
-        <li><strong><%= link_to "Login with Google", 'auth/google_oauth2', method: 'post' %></strong></li>
+        <div class="navbar-item"><strong><%= link_to "Signup", signup_path %></strong></div> 
+        <div class="navbar-item"><strong><%= link_to "Login", login_path %></strong></div>
+        <div class="navbar-item"><strong><%= link_to "Login with Google", '/auth/google_oauth2', method: 'post' %></strong></div>
       <% else %>
-        <li><strong><%= link_to "Logout", logout_path, method: 'delete' %></strong></li>
+        <div class="navbar-item"><strong><%= link_to "Logout", logout_path, method: 'delete' %></strong></div>
+        <div class="navbar-item"><strong><%= link_to "Add New Cocktail", new_recipe_path %></strong></div>
       <% end %>
-      <li><strong><%= link_to "View Cocktails", recipes_path %></strong></li>
-    </ul>
+      <div class="navbar-item"><strong><%= link_to "View Cocktails", recipes_path %></strong></div>
+      
+    </div>
   </div>
+  </nav>
 
 
 
@@ -33,11 +39,14 @@
     </div>
   <% end %>
 
-    <%= yield %>
+  <section class="section">
+    <div class="content">
+      <%= yield %>
+    </div>
+  </section>
 
+</body>
 
-
-  </body>
 
   
 </html>

@@ -1,2 +1,9 @@
-<h1>Welcome<% ", #{current_user.name}" if current_user %>!</h1>
+<h1>Welcome<%= ", #{current_user.username}" if current_user %>!</h1>
 <p>Welcome to Barmaid's Tail, the bartender's go-to for sharing craft cocktail recipes!</p>
+
+<% if logged_in? %>
+
+   <strong><%= link_to "View Your Profile", user_path(current_user), class:"button" %></strong>
+   <strong><%= link_to "Add New Cocktail", new_recipe_path, class:"button" %></strong>
+
+<% end %>

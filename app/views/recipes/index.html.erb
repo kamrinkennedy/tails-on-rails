@@ -1,24 +1,23 @@
 <h1><%= @main_spirit.name if @main_spirit %> Cocktails</h1>
 <h3>Filter by:</h3>
-<ul>
-    <li><strong><%=link_to "Main Spirit", main_spirits_path %></strong></li>
-    <li><strong><%=link_to "Top Rated", top_rated_path %></strong></li>
-</ul>
-<h3>Cocktails:</h3>
-<ul>
+    <strong><%=link_to "Main Spirit", main_spirits_path %></strong><br>
+    <strong><%=link_to "Top Rated", top_rated_path %></strong>
+<h3>All Cocktails:</h3>
+
+
     <% if @recipes %>
+    <div class="recipe_index">
         <% @recipes.each do |recipe| %>
-            <li><strong><%= link_to recipe.name, recipe_path(recipe) %></strong></li>
+            <strong><%= link_to recipe.name, recipe_path(recipe), class:"button" %></strong>
         <% end %>
     <% else %>
         <% @main_spirit.recipes.each do |recipe| %>
-            <li><strong><%= link_to recipe.name, recipe_path(recipe) %></strong></li>
+            <strong><%= link_to recipe.name, recipe_path(recipe), class:"button" %></strong>
         <% end %>
     <% end %>
+    </div>
 </ul>
 
-<% if @main_spirit %>
-    <ul>
-        <li><strong><%= link_to "Add a new #{@main_spirit.name} cocktail", new_main_spirit_recipe_path %></strong></li>
-    </ul>
+<% if @main_spirit && logged_in? %>
+    <strong><%= link_to "Add a new #{@main_spirit.name} cocktail", new_main_spirit_recipe_path %></strong>
 <% end %>

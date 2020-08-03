@@ -8,5 +8,13 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def handle_record_not_found
+        render partial: 'shared/_not_found'
+    end
+
+    def not_found
+        redirect_to root_path, alert: "Sorry, that page was not found."
+    end
+
 
 end
