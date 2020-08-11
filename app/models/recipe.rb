@@ -23,7 +23,7 @@ class Recipe < ApplicationRecord
 
 
     def self.top_rated
-        self.select("recipes.*, AVG(rating) as avg_rating").joins(:reviews).group(:id).order("AVG(rating) desc")
+        self.select("recipes.*, AVG(rating) as avg_rating").joins(:reviews).group(:id).order("avg_rating desc")
     end
 
 

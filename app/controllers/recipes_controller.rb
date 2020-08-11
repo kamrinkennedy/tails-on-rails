@@ -5,6 +5,9 @@ class RecipesController < ApplicationController
     def index
         if params[:main_spirit_id]
             @main_spirit = MainSpirit.find_by_id(params[:main_spirit_id])
+        elsif params[:user_id]
+            @user = User.find(params[:user_id])
+            @recipes = @user.reviewed_recipes
         else
             @recipes = Recipe.all
         end

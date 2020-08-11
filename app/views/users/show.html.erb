@@ -7,4 +7,5 @@
     <% end %>
 </ul>
 
-<%= link_to "See Reviews", review_path(@user), class:"button" %>
+<%= link_to "See Reviews", user_reviews_path(@user), class:"button" %>
+<%= link_to "See Reviewed Recipes", user_reviewed_recipes_path(@user), class:"button" %>

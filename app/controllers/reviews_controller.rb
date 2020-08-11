@@ -1,8 +1,10 @@
 class ReviewsController < ApplicationController
     before_action :set_review, only: [:update, :show, :edit, :destroy]
-    rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
+    rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
     def index
+        @user = User.find(params[:user_id])
+        @reviews = @user.reviews
     end
 
     def new
