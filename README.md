@@ -4,7 +4,7 @@ Barmaid's Tail is a web application designed for bartenders to share signature c
 
 ## Getting Started
 
-Find repository here: (https://github.com/kamrinkennedy/game_library)
+Find repository here: (https://github.com/kamrinkennedy/barmaids_tale)
 
 ### Prerequisites
 
