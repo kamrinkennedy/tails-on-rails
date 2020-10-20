@@ -1,10 +1,10 @@
-# Barmaid's Tale
+# Tails on Rails
 
-Barmaid's Tail is a web application designed for bartenders to share signature cocktail recipes. Users may upload cocktail recipes and leave reviews/ratings for existing recipes in the database. Users may also filter through cocktails by spirit as well as rating.
+Tails on Rails is a web application designed for bartenders to share signature cocktail recipes. Users may upload cocktail recipes and leave reviews/ratings for existing recipes in the database. Users may also filter through cocktails by spirit as well as rating.
 
 ## Getting Started
 
-Find repository here: (https://github.com/kamrinkennedy/game_library)
+Find repository here: (https://github.com/kamrinkennedy/tails-on-rails)
 
 ### Prerequisites
 
