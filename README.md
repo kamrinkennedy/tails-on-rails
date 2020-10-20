@@ -48,7 +48,7 @@ Use Ctrl-C to stop
 
 ## Contributing
 
-If interested in contributing, please send all pull requests to (https://github.com/kamrinkennedy/barmaids_tale)
+If interested in contributing, please send all pull requests to (https://github.com/kamrinkennedy/tails-on-rails)
 
 
 ## Authors
